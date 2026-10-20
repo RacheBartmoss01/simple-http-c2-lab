@@ -1,71 +1,116 @@
-# Simple Local Security Practice Scripts
+# Security Lab Practice
 
-This repository contains a few very small example scripts for learning about:
-- hosting a simple HTTP service locally
-- how reverse-shell payload patterns are structured in a lab environment
-- upgrading a basic shell into a more interactive PTY session
+[![Python 3](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![PHP](https://img.shields.io/badge/PHP-7%2F8-orange.svg)](https://www.php.net/)
+[![Status](https://img.shields.io/badge/Status-Learning%20Only-orange.svg)](#security-notes)
+[![Use responsibly](https://img.shields.io/badge/Use-Authorized%20Lab%20Only-red.svg)](#security-notes)
 
-Important:
-- These scripts are intended for authorized, isolated, learning environments only.
-- Only use them on systems you own or have explicit written permission to test.
-- Do not run them against production systems, shared networks, or external targets without authorization.
+![Security Lab Practice Banner](docs/screenshots/banner.svg)
 
-## Use cases
+A small educational repository for practicing local network and shell basics in a controlled lab environment.
 
-1. Local web hosting practice
-   - Serve a folder or simple page from your own machine
-   - Useful for learning HTTP basics, ports, listeners, and local testing workflows
+This project includes:
+- a minimal local HTTP file server
+- a simple reverse-shell example template
+- a PTY upgrade snippet for learning about interactive shells
 
-2. Learning lab for command-and-control patterns
-   - Use as a code example for understanding how a client connects back to a listener
-   - Helps with learning payload structure and network flow in a controlled lab setup
+## Security notes
 
-3. Shell upgrade practice
-   - Demonstrates how a basic shell can be upgraded to a more interactive PTY-based prompt
-   - Useful for understanding shell behavior and TTY/PTY basics
+This repository is intended strictly for:
+- authorized lab environments
+- local virtual machines you own or control
+- educational or training scenarios with explicit permission
 
-## Files in this repository
+Do not run these scripts against:
+- production systems
+- external hosts without permission
+- any target outside an approved testing environment
 
-- `simplehttpser.py` — starts a simple local HTTP server on port 8080
-- `simpleRevShell.php` — example reverse-shell pattern template for learning in authorized lab use only
-- `upgradetty.txt` — example PTY upgrade snippet for shell usability
+## Repository layout
+
+```text
+security-lab-practice/
+├── README.md
+├── .gitignore
+├── examples/
+│   ├── http_server/
+│   │   └── simplehttpser.py
+│   └── reverse_shell/
+│       └── simpleRevShell.php
+├── notes/
+│   ├── pty-upgrade.md
+│   └── security-lab-notes.md
+├── docs/
+│   └── screenshots/
+│       ├── banner.svg
+│       ├── http-server-usage.svg
+│       └── pty-upgrade.svg
+└── legacy/
+    └── old_examples/
+```
 
 ## Quick start
 
-### Start the local HTTP server
+### 1) Start the local HTTP server
+
 ```bash
-python3 simplehttpser.py
+python3 examples/http_server/simplehttpser.py
 ```
-Then open your browser to:
+
+This starts a minimal local web server on port 8080. Open your browser to:
+
 ```text
 http://127.0.0.1:8080/
 ```
 
-### Example reverse-shell pattern
-This file is intentionally a template/example for a lab environment only. Replace placeholders before using in any controlled test environment.
+![HTTP server usage](docs/screenshots/http-server-usage.svg)
+
+### 2) Reverse-shell example template
+
+This is a template for learning how reverse-shell payloads are structured in a controlled lab environment.
 
 ```php
 <?php
-// Authorized lab use only.
-// Replace the placeholder IP/PORT with values used in your own isolated environment.
-// Example pattern only — do not use against unauthorized systems.
+// Example lab-only template
+// Replace the host/port values to match your isolated environment.
+// NEVER run this against unauthorized systems.
 $host = "127.0.0.1";
 $port = 8080;
-$command = "/bin/sh";
-// Example structure only; adapt for your own isolated lab setup.
 ?>
 ```
 
-### Upgrade a shell to PTY
+### 3) Upgrade a basic shell to a PTY shell
+
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
+The PTY upgrade helps a shell behave more like an interactive terminal. This is useful in a lab for studying terminal behavior and shell upgrades.
+
+![PTY upgrade example](docs/screenshots/pty-upgrade.svg)
+
+## Usage
+
+This repo is useful for learning:
+- how a local HTTP listener works
+- how a reverse-shell payload is structured
+- how PTY upgrades make a shell more usable
+- how to inspect and map basic network and shell behaviors in a controlled lab
+
+### Typical lab flow
+
+1. Run the simple HTTP server locally.
+2. Study the listener flow and port behavior.
+3. Review the reverse-shell template in a controlled environment.
+4. Practice the PTY upgrade workflow in a VM or lab system.
+5. Record findings in the notes folder.
+
 ## Notes
 
-This repository is meant as a learning and security-practice project. It is best used in:
-- local virtual machines
-- isolated lab networks
-- training environments with explicit permission
+See:
+- `notes/pty-upgrade.md`
+- `notes/security-lab-notes.md`
 
-Use responsibly and ethically.
+## License status
+
+This repository does not currently include a project license. It is intended for educational use in authorized lab environments only.
