@@ -1,0 +1,6 @@
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# Upgrade a basic shell into a more interactive PTY shell.
+# This is useful for learning about terminal behavior in authorized lab environments.
+# Make sure the Python version in your environment matches the shell you are using.
+# Example: use "python" or "python3" depending on what is installed.
